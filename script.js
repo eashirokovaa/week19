@@ -18,10 +18,6 @@ console.log(worker2.rate);
 console.log(worker2.days);
 console.log(worker2.getSalary());
 
-//Task2
-/*class Cat {
-  constructor(nickname, name, contacts, breed, food, sex) {}
-}*/
 //Task4
 class Validator {
   isEmail(txt) {
