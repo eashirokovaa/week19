@@ -1,12 +1,13 @@
 //Task2
 class Cat {
-  constructor(nickname, name, contacts, breed, food, sex) {
+  constructor(nickname, name, contacts, breed, food, sex, comment) {
     this.nickname = nickname;
-    this.name - name;
+    this.name = name;
     this.contacts = contacts;
     this.breed = breed;
     this.food = food;
     this.sex = sex;
+    this.comment = comment;
   } 
 }
 function getValues() {
@@ -33,6 +34,10 @@ function getValues() {
       sex += radio[i].value;
     }
   }
-  let cat1 = new Cat(nickname, name, contacts, breed, food, sex);
+  let comment = document.querySelector("#comment");
+  commentValue = comment.value;
+
+  const cat1 = new Cat(nickname, name, contacts, breed, food, sex, commentValue);
+  console.log(cat1)
   
 }
