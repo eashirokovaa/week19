@@ -11,9 +11,9 @@ class Cat {
 }
 function getValues() {
   
-  let nickname = document.getElementById("name");
-  let name = document.getElementById("fio");
-  let contacts = document.getElementById("contact");
+  let nickname = document.getElementById("name").value;
+  let name = document.getElementById("fio").value;
+  let contacts = document.getElementById("contact").value;
 
   let selectElement = document.querySelector("#breed");
   let breed = selectElement.options[selectElement.selectedIndex].text;
