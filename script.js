@@ -18,6 +18,10 @@ console.log(worker2.rate);
 console.log(worker2.days);
 console.log(worker2.getSalary());
 
+//Task2
+/*class Cat {
+  constructor(nickname, name, contacts, breed, food, sex) {}
+}*/
 //Task4
 class Validator {
   isEmail(txt) {
@@ -61,7 +65,7 @@ class ValidatorStatic {
     return txt.match(phoneFormat) === null ? false : true;
   }
 }
-console.log(ValidatorStatic.isEmail('alisa@mail.ru'));
-console.log(ValidatorStatic.isDomain('itgirlschool.ru'));
-console.log(ValidatorStatic.isDate('12.05.2021'));
-console.log(ValidatorStatic.isPhone('+7(910)123-45-67'));
+console.log(ValidatorStatic.isEmail("alisa@mail.ru"));
+console.log(ValidatorStatic.isDomain("itgirlschool.ru"));
+console.log(ValidatorStatic.isDate("12.05.2021"));
+console.log(ValidatorStatic.isPhone("+7(910)123-45-67"));

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Страница-опросник</title>
+    <link
+      rel="shortcut icon"
+      href="https://cdn-icons-png.flaticon.com/512/64/64673.png"
+      type="image/png"
+    />
+    <style>
+      input:required:invalid {
+        background-image: linear-gradient(to right, rgb(255, 183, 183),rgb(241, 211, 155));
+      }
+      input:required:valid {
+        border-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <legend>Имя</legend>
+      <p>
+        <label for="name">Кличка питомца</label>
+        <input type="text" id="name" required />
+      </p>
+      <p>
+        <label for="fio">Имя владельца</label>
+        <input type="text" id="fio"  />
+      </p>
+      <p>
+        <label for="contact">Контакты владельца</label>
+        <input type="text" id="contact" required/>
+      </p>
+      <p>Выберите продукт</p>
+      <div>
+        <select id="breed" >
+          <option value="first option">Сиамская</option>
+          <option value="second option">Сингапура</option>
+          <option value="third option">Сноу-шоу</option>
+        </select>
+      </div>
+      <p>--Чем питается?</p>
+      <div>
+        <input type="checkbox" name="source" id="skorm" value="сухой корм"/><label for="skorm"
+          >Сухой корм</label
+        ><br />
+        <input type="checkbox" name="source" id="vkorm" value="влажный корм"/><label for="vkorm"
+          >Влажный корм</label
+        ><br />
+        <input type="checkbox" name="source" id="mix" value="микс" /><label for="mix"
+          >Микс</label
+        ><br />
+      </div>
+      <p>Пол питомца:</p>
+      <input type="radio" name="sex" value="male" /> <span>Самец</span><br />
+      <input type="radio" name="sex" value="female" /> <span>Самка</span>
+      <p>Комментарий</p>
+      <textarea name="Comment" cols="30" rows="10">
+Если хотите добавить что-то важное, то можете написать здесь</textarea
+      >
+      <div>
+        Можете добавить фотографию питомца
+        <input type="file" />
+      </div>
+      <div>
+        <button type="button" onclick="getValues()" >Сохранить</button>
+      </div>
+    </form>
+    <div id="res"></div>
+    <script src="/script2.js"></script>
+  </body>
+</html>
