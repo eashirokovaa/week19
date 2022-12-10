@@ -12,7 +12,11 @@
     />
     <style>
       input:required:invalid {
-        background-image: linear-gradient(to right, rgb(255, 183, 183),rgb(241, 211, 155));
+        background-image: linear-gradient(
+          to right,
+          rgb(255, 183, 183),
+          rgb(241, 211, 155)
+        );
       }
       input:required:valid {
         border-color: green;
@@ -20,23 +24,23 @@
     </style>
   </head>
   <body>
-    <form action="">
+    <form id="formelem" action="">
       <legend>Имя</legend>
       <p>
         <label for="name">Кличка питомца</label>
-        <input type="text" id="name" required />
+        <input type="text" id="name" name="name" required />
       </p>
       <p>
         <label for="fio">Имя владельца</label>
-        <input type="text" id="fio" />
+        <input type="text" id="fio" name="fio" />
       </p>
       <p>
         <label for="contact">Контакты владельца</label>
-        <input type="text" id="contact" required/>
+        <input type="text" id="contact" name="contact" required />
       </p>
       <p>Выберите продукт</p>
       <div>
-        <select id="breed" >
+        <select id="breed">
           <option value="first option">Сиамская</option>
           <option value="second option">Сингапура</option>
           <option value="third option">Сноу-шоу</option>
@@ -44,13 +48,20 @@
       </div>
       <p>--Чем питается?</p>
       <div>
-        <input type="checkbox" name="source" id="skorm" value="сухой корм"/><label for="skorm"
-          >Сухой корм</label
-        ><br />
-        <input type="checkbox" name="source" id="vkorm" value="влажный корм"/><label for="vkorm"
-          >Влажный корм</label
-        ><br />
-        <input type="checkbox" name="source" id="mix" value="микс" /><label for="mix"
+        <input
+          type="checkbox"
+          name="source"
+          id="skorm"
+          value="сухой корм"
+        /><label for="skorm">Сухой корм</label><br />
+        <input
+          type="checkbox"
+          name="source"
+          id="vkorm"
+          value="влажный корм"
+        /><label for="vkorm">Влажный корм</label><br />
+        <input type="checkbox" name="source" id="mix" value="микс" /><label
+          for="mix"
           >Микс</label
         ><br />
       </div>
@@ -58,17 +69,34 @@
       <input type="radio" name="sex" value="male" /> <span>Самец</span><br />
       <input type="radio" name="sex" value="female" /> <span>Самка</span>
       <p>Комментарий</p>
-      <textarea id="comment" name="Comment" cols="30" rows="10" placeholder="for your comments"></textarea
-      >
+      <textarea
+        id="comment"
+        name="Comment"
+        cols="30"
+        rows="10"
+        placeholder="for your comments"
+      ></textarea>
       <div>
         Можете добавить фотографию питомца
         <input type="file" />
       </div>
-      <div>
-        <button type="button" onclick="getValues()" >Сохранить</button>
-      </div>
+      <button type="submit" id="button">Сохранить</button>
     </form>
     <div id="res"></div>
     <script src="/script2.js"></script>
+    <script>
+      button.onclick = function (e) {
+        e.preventDefault();
+        fetch("https://httpbin.org/post ", {
+          method: "POST",
+          body: new FormData(document.getElementById("formelem")),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((err) => console.log(err));
+      };
+    </script>
   </body>
 </html>
