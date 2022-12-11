@@ -85,11 +85,14 @@
     <div id="res"></div>
     <script src="/script2.js"></script>
     <script>
+      const form = document.getElementById("formelem");
       button.onclick = function (e) {
         e.preventDefault();
+        const data = new FormData(form);
+        const dataClean = new URLSearchParams(data);
         fetch("https://httpbin.org/post ", {
           method: "POST",
-          body: new FormData(document.getElementById("formelem")),
+          body: dataClean,
         })
           .then((response) => response.json())
           .then((data) => {
